@@ -23,21 +23,19 @@ Create two columns: questionNo, and choice.
    INSERT INTO responses (questionNo, choice) VALUES (8, '?');
 
 5. Write an Android app (as client) for the users:
-   [A]- On click, trigger a URL: http://ip_addr:port/clicker/select?choice=a
-   [B]- On click, trigger a URL: http://ip_addr:port/clicker/select?choice=b
-   [C]- On click, trigger a URL: http://ip_addr:port/clicker/select?choice=c
-   [D]- On click, trigger a URL: http://ip_addr:port/clicker/select?choice=d
+<img width="749" alt="Screenshot 2024-04-05 at 12 11 54 PM" src="https://github.com/sneham88/mobile_clicker_system/assets/156883165/cce0f500-f979-4777-9fa6-3e878604ae22">
 
 6. Write a servlet, which maps to URL “/select”, to capture the choice and store in the database
 table.
 
-// Step 3 & 4 of the database servlet
+/* // Step 3 & 4 of the database servlet
+
 // Assume that the URL is http://ip‐addr:port/clicker/select?choice=x
 // Assume that the questionNo is 8
 String choice = request.getParameter("choice");
 String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES (8, '"
       + choice + "')";
-int count = stmt.executeUpdate(sqlStr);   // run the SQL statement
+int count = stmt.executeUpdate(sqlStr);   // run the SQL statement */
 
 8. Display the user's choice on http://ip_addr:port/clicker/select?choice='x'; 
 E.g You selected option "*b*" for question "*8*";
