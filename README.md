@@ -5,6 +5,7 @@
 2. Students select an option from their mobile devices.
 3. Instructor displays the statistics on his console.
 
+# Steps
 1. Refer to your “ebookshop” case study, in particular, the section on “Processing the Order”.
 2. Create a webApp to display 10 questions, each with options a, b, c, and d. (10 screens with a next and back button to navigate between questions)
 3. Create a table "responses" to capture the responses from the students.
