@@ -1,6 +1,6 @@
 # mobile_clicker_system
 
-Use Case
+# Use Case
 1. Instructor shows a MCQ with options.
 2. Students select an option from their mobile devices.
 3. Instructor displays the statistics on his console.
@@ -9,8 +9,9 @@ Use Case
 2. Create a webApp to display 10 questions, each with options a, b, c, and d. (10 screens with a next and back button to navigate between questions)
 3. Create a table "responses" to capture the responses from the students.
 
-Assume that there are many questions with any number of responses (a, b, c,...). Create two
-columns: questionNo, and choice.
+Assume that there are many questions with any number of responses (a, b, c,...). 
+
+Create two columns: questionNo, and choice.
 
   CREATE TABLE responses (
       questionNo INT,
@@ -40,7 +41,7 @@ int count = stmt.executeUpdate(sqlStr);   // run the SQL statement
 8. Display the user's choice on http://ip_addr:port/clicker/select?choice='x'; 
 E.g You selected option "*b*" for question "*8*";
 
-Add back button to Android App to return to the main activity (options)
+9. Add back button to Android App to return to the main activity (options)
 
 
 
