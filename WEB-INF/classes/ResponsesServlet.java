@@ -20,7 +20,11 @@ public class ResponsesServlet extends HttpServlet {
       PrintWriter out = response.getWriter();
       // Print an HTML page as the output of the query
       out.println("<html>");
+      out.println("<head>");
       out.println("<head><title>Query Response</title></head>");
+      // Bootstrap CSS
+      out.println("<link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>");
+      out.println("</head>");
       out.println("<body>");
 
       try (
@@ -34,24 +38,30 @@ public class ResponsesServlet extends HttpServlet {
          Statement stmt = conn.createStatement();
       ) {
  
-        /** // Step 3: Execute a SQL SELECT query
-        String sqlStr = "select * from responses where response = "
-        + "'" + request.getParameter("choice") + "'";   // Single-quote SQL string
-**/
-        // Step 4 of the database servlet
-        // Assume that the URL is http://ip‐addr:port/mobile_clicker_system/select?choice=x
-        // Assume that the questionNo is 8
+
+        // Step 3 & 4 of the database servlet
+        // Assume that the URL is http://ip‐addr:port/mobile_clicker_system/response?choice=x
+        // Assume that the questionNo is 1
         String choice = request.getParameter("choice");
         String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES (1, '"
             + choice + "')";
         int count = stmt.executeUpdate(sqlstr);   // run the SQL statement
+
+        // Print the confirmation message including the SQL statement
+        out.println("<p>Thank you for your response. Your SQL statement is:</p>");
+        out.println("<pre>" + sqlstr + "</pre>");
+        // Add the button that links to /display
+        out.println("<a href='/mobile_clicker_system/display' class='btn btn-primary'>See Statistics</a>");
+                // Add the button to go back to question1.html
+                out.println("<a href='question1.html' class='btn btn-secondary mt-2'>Back</a>");
+
             
             } catch (SQLException ex) {
                 // Handle any SQL errors
                 ex.printStackTrace();
             } finally {
                 out.println("</body></html>");
-                out.close();
+                out.close();  // Close the output writer
             }
         }
 }
