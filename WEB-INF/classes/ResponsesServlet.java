@@ -41,9 +41,9 @@ public class ResponsesServlet extends HttpServlet {
 
         // Step 3 & 4 of the database servlet
         // Assume that the URL is http://ip‐addr:port/mobile_clicker_system/response?choice=x
-        // Assume that the questionNo is 1
+        String questionNo = request.getParameter("questionNo");
         String choice = request.getParameter("choice");
-        String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES (1, '"
+        String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES ('" + questionNo + "', '"
             + choice + "')";
         int count = stmt.executeUpdate(sqlstr);   // run the SQL statement
 
@@ -53,7 +53,7 @@ public class ResponsesServlet extends HttpServlet {
         // Add the button that links to /display
         out.println("<a href='/mobile_clicker_system/display' class='btn btn-primary'>See Statistics</a>");
                 // Add the button to go back to question1.html
-                out.println("<a href='question1.html' class='btn btn-secondary mt-2'>Back</a>");
+        out.println("<a href='question1.html' class='btn btn-secondary mt-2'>Back</a>");
 
             
             } catch (SQLException ex) {
