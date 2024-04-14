@@ -10,7 +10,7 @@ import jakarta.servlet.annotation.*;
 @WebServlet("/response")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
 public class ResponsesServlet extends HttpServlet {
 
-   // The doGet() runs once per HTTP GET request to this servlet.
+    // The doGet() runs once per HTTP GET request to this servlet.
    @Override
    public void doGet(HttpServletRequest request, HttpServletResponse response)
                throws ServletException, IOException {
@@ -38,30 +38,32 @@ public class ResponsesServlet extends HttpServlet {
          Statement stmt = conn.createStatement();
       ) {
  
-
         // Step 3 & 4 of the database servlet
         // Assume that the URL is http://ip‐addr:port/mobile_clicker_system/response?choice=x
         String questionNo = request.getParameter("questionNo");
         String choice = request.getParameter("choice");
-        String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES ('" + questionNo + "', '"
-            + choice + "')";
+        String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES ('" + questionNo + "', '" + choice + "')";
         int count = stmt.executeUpdate(sqlstr);   // run the SQL statement
 
         // Print the confirmation message including the SQL statement
         out.println("<p>Thank you for your response. Your SQL statement is:</p>");
         out.println("<pre>" + sqlstr + "</pre>");
-        // Add the button that links to /display
-        out.println("<a href='/mobile_clicker_system/display' class='btn btn-primary'>See Statistics</a>");
-                // Add the button to go back to question1.html
-        out.println("<a href='question1.html' class='btn btn-secondary mt-2'>Back</a>");
 
-            
-            } catch (SQLException ex) {
-                // Handle any SQL errors
-                ex.printStackTrace();
-            } finally {
-                out.println("</body></html>");
-                out.close();  // Close the output writer
-            }
-        }
+        // Create a form that submits a GET request to the /display servlet
+        out.println("<form action='display' id= 'questionForm' method='GET'>");
+        out.println("<input type='hidden' name='questionNo' value='" + questionNo + "'/>"); // Hidden field
+        out.println("<button type='submit' class='btn btn-primary'>See Statistics</button>");
+        out.println("</form>");
+
+// Link to go back to the specific question page
+out.println("<a href='question" + questionNo + ".html' class='btn btn-secondary mt-2'>Back</a>");
+
+} catch (SQLException ex) {
+    // Handle any SQL errors
+    ex.printStackTrace();
+} finally {
+    out.println("</body></html>");
+    out.close();  // Close the output writer
+}  
+}            
 }
