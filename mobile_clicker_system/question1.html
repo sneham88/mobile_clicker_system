@@ -108,11 +108,16 @@
  </div>
 </form>
 
-        <!-- "Next Question" Button -->
+        <!-- "Previous Question" button and "Next Question" Button -->
         <div class="container next-button">
+            <button type="button" class="btn btn-outline-primary btn-next-question" onclick="prevQuestion()">Previous Question</button>
             <button type="button" class="btn btn-outline-primary btn-next-question" onclick="nextQuestion()">Next Question</button>
         </div>
         <script>
+            function prevQuestion() {
+                window.location.href = 'index.html';
+            }
+
             function nextQuestion() {
                 window.location.href = 'question2.html';
             }
