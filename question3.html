@@ -42,9 +42,9 @@
 </head>
 <body>
 
-    <form id="responseForm" method="GET" action="response">
-    <!-- Hidden field for the question number -->
-    <input type="hidden" name="questionNo" value="3">
+    <form id="responseForm" method="GET" action="response3">
+    <!-- Hidden field for the question number
+    <input type="hidden" name="questionNo" value="3">  -->
     
     <!-- Question -->
     <div class="container">
@@ -74,15 +74,31 @@
         </div>
     </div>
    </form>
-        <!-- "Next Question" Button -->
+   
+        <!-- "Previous Question" button and "Next Question" Button -->
         <div class="container next-button">
+            <button type="button" class="btn btn-outline-primary btn-next-question" onclick="prevQuestion()">Previous Question</button>
             <button type="button" class="btn btn-outline-primary btn-next-question" onclick="nextQuestion()">Next Question</button>
         </div>
         <script>
+            function prevQuestion() {
+                window.location.href = 'question2.html';
+            }
+
             function nextQuestion() {
                 window.location.href = 'question4.html';
             }
         </script>
+
+        <div class="container next-button">
+            <form id="responseForm" method="GET" action="display3">
+                <!-- <input type="hidden" name="questionNo" value="3">  -->
+                    <!-- "Show Statistics" Button -->
+                    <div class="container stats-button">
+                        <button type="submit" class="btn btn-outline-primary btn-next-question">Show Statistics</button>
+                    </div>
+            </form>
+        </div>
 
     <!-- Bootstrap 5 Js bundle CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
