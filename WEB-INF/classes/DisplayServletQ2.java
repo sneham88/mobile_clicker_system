@@ -7,8 +7,8 @@ import jakarta.servlet.annotation.*;
 //import javax.servlet.http.*;
 //import javax.servlet.annotation.*;
 
-@WebServlet("/display1")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
-public class DisplayServlet extends HttpServlet {
+@WebServlet("/display2")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
+public class DisplayServletQ2 extends HttpServlet {
 
    // The doGet() runs once per HTTP GET request to this servlet.
    @Override
@@ -54,11 +54,11 @@ public class DisplayServlet extends HttpServlet {
         // Step 3 & 4 of the database servlet
         // Assume that the URL is http://ip‐addr:port/mobile_clicker_system/display
                 
-        String query = "SELECT choice, COUNT(*) AS count FROM responses WHERE questionNo=1 GROUP BY choice";
+        String query = "SELECT choice, COUNT(*) AS count FROM responses WHERE questionNo=2 GROUP BY choice";
         ResultSet rs = stmt.executeQuery(query);
 
         // Print the results message passing the correct questionNo
-        out.println("<h3>Results for Question 1" + ":" + "</h3>");
+        out.println("<h3>Results for Question 2" + ":" + "</h3>");
 
         String[] progressBarClasses = {"bg-primary", "bg-success", "bg-danger", "bg-warning"};
         int i = 0;
@@ -84,7 +84,7 @@ public class DisplayServlet extends HttpServlet {
             i++; // Increment to get the next class for the next progress bar
         }
            // Link to go back to the specific question page
-           out.println("<a href='question1.html' class='btn btn-secondary mt-2'>Back</a>");
+           out.println("<a href='question2.html' class='btn btn-secondary mt-2'>Back</a>");
             
             } catch (SQLException ex) {
                 // Handle any SQL errors

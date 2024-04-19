@@ -7,8 +7,8 @@ import jakarta.servlet.annotation.*;
 //import javax.servlet.http.*;
 //import javax.servlet.annotation.*;
 
-@WebServlet("/response1")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
-public class ResponsesServlet extends HttpServlet {
+@WebServlet("/response4")   // Configure the request URL for this servlet (Tomcat 7/Servlet 3.0 upwards)
+public class ResponsesServletQ4 extends HttpServlet {
 
     // The doGet() runs once per HTTP GET request to this servlet.
    @Override
@@ -42,7 +42,7 @@ public class ResponsesServlet extends HttpServlet {
         // Assume that the URL is http://ip‐addr:port/mobile_clicker_system/response?choice=x
         //String questionNo = request.getParameter("questionNo");
         String choice = request.getParameter("choice");
-        String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES (1, '"
+        String sqlstr = "INSERT INTO responses (questionNo, choice) VALUES (4, '"
         + choice + "')";
         int count = stmt.executeUpdate(sqlstr);   // run the SQL statement
 
@@ -51,13 +51,13 @@ public class ResponsesServlet extends HttpServlet {
         out.println("<pre>" + sqlstr + "</pre>");
 
         // Create a form that submits a GET request to the /display servlet
-        out.println("<form action='display1' id= 'questionForm' method='GET'>");
+        out.println("<form action='display4' id= 'questionForm' method='GET'>");
         //out.println("<input type='hidden' name='questionNo' value='" + questionNo + "'/>"); // Hidden field
         out.println("<button type='submit' class='btn btn-primary'>See Statistics</button>");
         out.println("</form>");
 
 // Link to go back to the specific question page
-out.println("<a href='question1.html' class='btn btn-secondary mt-2'>Back</a>");
+out.println("<a href='question4.html' class='btn btn-secondary mt-2'>Back</a>");
 
 } catch (SQLException ex) {
     // Handle any SQL errors
