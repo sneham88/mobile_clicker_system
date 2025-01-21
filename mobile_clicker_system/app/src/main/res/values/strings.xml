@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">mobile_clicker_system</string>
+
+    <string name="instructionTextLabel">Please choose a question and select a choice:</string>
+
+    <string name="radioButtonQ1Label">Question 1</string>
+    <string name="radioButtonQ2Label">Question 2</string>
+    <string name="radioButtonQ3Label">Question 3</string>
+    <string name="radioButtonQ4Label">Question 4</string>
+    <string name="radioButtonQ5Label">Question 5</string>
+
+    <string name="buttonALabel">A</string>
+    <string name="buttonBLabel">B</string>
+    <string name="buttonCLabel">C</string>
+    <string name="buttonDLabel">D</string>
+
+    <string name="backBtnLabel">Go Back (To App)</string>
+</resources>
